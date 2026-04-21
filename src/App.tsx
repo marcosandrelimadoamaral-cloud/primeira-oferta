@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 const Highlight = ({ children, className = "" }: any) => (
-  <span className={`bg-[#fde047] px-1 rounded-sm font-semibold ${className}`}>{children}</span>
+  <span className={`bg-[#fde047] px-1 rounded-sm font-semibold box-decoration-clone ${className}`}>{children}</span>
 );
 
 const SectionHero = () => (
@@ -340,9 +340,9 @@ const SectionGrid = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-16"
+        className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-16 leading-[1.6]"
       >
-        <Highlight className="px-6 py-2 shadow-sm rounded-lg">O Que Seu Filho<br/>Vai Aprender 📚</Highlight>
+        <Highlight className="px-4 py-1 shadow-sm rounded-lg box-decoration-clone">O Que Seu Filho<br/>Vai Aprender 📚</Highlight>
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -397,16 +397,21 @@ const SectionVideo = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className="max-w-3xl mx-auto bg-[#6b52a1] rounded-3xl overflow-hidden shadow-2xl border-[6px] md:border-[12px] border-[#ede9f6] hover:border-indigo-100 transition-colors"
+      className="max-w-[400px] w-full mx-auto bg-[#6b52a1] rounded-3xl overflow-hidden shadow-2xl border-[6px] md:border-[12px] border-[#ede9f6] hover:border-indigo-100 transition-colors"
     >
-      <div 
-        className="aspect-video flex flex-col items-center justify-center text-white cursor-pointer group p-4 text-center relative bg-cover bg-center"
-        style={{ backgroundImage: `url('https://images.converteai.net/ee4372af-211b-489b-9e9e-5c0e6c0725aa/players/67475f192a5c4d4acb990e5c/thumbnail.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500" />
-        <div className="relative z-10 flex flex-col items-center">
-          <PlayCircle className="w-24 h-24 text-white opacity-90 group-hover:scale-125 transition-transform duration-500 mb-4 drop-shadow-2xl" />
-        </div>
+      <div className="relative w-full aspect-[9/16]">
+        {/*
+          IMPORTANTE: Note que o Panda Video exige a URL completa do seu dashboard,
+          que inclui o seu "libID" ou domínio personalizado (ex: player-vz-xxxxx.tv.pandavideo.com.br).
+          Cole o iframe exato fornecido pela PandaVideo abaixo.
+        */}
+        <iframe 
+          id="panda-4ffaf71b-22b3-4df9-bd7a-0bc7a8cdc623" 
+          src="https://player-vz-cab8b543-24c.tv.pandavideo.com.br/embed/?v=4ffaf71b-22b3-4df9-bd7a-0bc7a8cdc623" 
+          style={{ border: 'none', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} 
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
+          allowFullScreen={true}
+        ></iframe>
       </div>
     </motion.div>
     
