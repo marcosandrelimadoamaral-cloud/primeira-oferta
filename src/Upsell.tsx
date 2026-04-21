@@ -21,6 +21,20 @@ export default function Upsell() {
           Isso aqui <span className="text-red-600">não é</span> pra qualquer um
         </motion.h1>
 
+        {/* 2.5 MOCKUP VISUAL */}
+        <motion.div
+           initial={{ opacity: 0, scale: 0.9 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ delay: 0.1 }}
+           className="mb-8"
+        >
+           <img 
+             src="https://educacaokids.com.br/wp-content/uploads/2024/11/mockup-grafomotricidade-v5.png" 
+             alt="Mockup do Kit Grafomotricidade" 
+             className="w-full max-w-lg mx-auto drop-shadow-xl hover:scale-105 transition-transform duration-500" 
+           />
+        </motion.div>
+
         {/* 3. SUBHEADLINE */}
         <motion.p 
           initial={{ opacity: 0 }}
