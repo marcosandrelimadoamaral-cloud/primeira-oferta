@@ -59,10 +59,29 @@ export default function Upsell() {
           <p className="font-bold text-slate-800 mt-4">E aí começa a frustração.</p>
         </motion.div>
 
-        {/* 6. APRESENTAÇÃO DO PRODUTO */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">Kit de Atividades de <span className="text-[#ec008c]">Grafomotricidade</span></h2>
-          <p className="text-lg text-slate-600 font-medium">Esse material treina o controle da mão da criança na prática.</p>
+        {/* 6. APRESENTAÇÃO DO PRODUTO E BENEFÍCIOS */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">O complemento perfeito:<br/>Kit <span className="text-[#ec008c]">Grafomotricidade</span></h2>
+          <p className="text-lg text-slate-600 font-medium mb-6">Com <span className="font-bold text-slate-800">apenas 10 minutos por dia</span>, você resolve isso. Esse material treina o controle exato da mão na prática.</p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+            <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+               <span className="text-green-500 text-xl">✅</span>
+               <p className="font-semibold text-slate-700 leading-tight">Fim da “Letra Feia” e falta de confiança</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+               <span className="text-green-500 text-xl">✅</span>
+               <p className="font-semibold text-slate-700 leading-tight">Melhora o foco e atenção na atividade</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+               <span className="text-green-500 text-xl">✅</span>
+               <p className="font-semibold text-slate-700 leading-tight">Coordenação motora fina aprimorada</p>
+            </div>
+            <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-start gap-3">
+               <span className="text-green-500 text-xl">✅</span>
+               <p className="font-semibold text-slate-700 leading-tight">Escrita com clareza e firmeza</p>
+            </div>
+          </div>
         </div>
 
         {/* 7. PROVA VISUAL */}
@@ -72,12 +91,30 @@ export default function Upsell() {
           <img src="https://educacaokids.com.br/wp-content/uploads/2024/11/tracado3.webp" alt="Coordenação motora" className="w-full h-auto rounded-xl shadow-md border hover:scale-105 transition-transform hidden lg:block" />
         </div>
 
-        {/* 8. BLOCO DE LÓGICA */}
+        {/* 8. COMO FUNCIONA */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-12 opacity-90">
+             <div className="text-center">
+                 <div className="bg-blue-100 text-blue-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 font-black text-xl">1</div>
+                 <p className="font-bold text-slate-700 text-sm">Chega no E-mail</p>
+             </div>
+             <ArrowRight className="text-slate-300 hidden sm:block" />
+             <div className="text-center">
+                 <div className="bg-yellow-100 text-yellow-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 font-black text-xl">2</div>
+                 <p className="font-bold text-slate-700 text-sm">Você Imprime</p>
+             </div>
+             <ArrowRight className="text-slate-300 hidden sm:block" />
+             <div className="text-center">
+                 <div className="bg-[#ec008c]/10 text-[#ec008c] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2 font-black text-xl">3</div>
+                 <p className="font-bold text-slate-700 text-sm">A criança Ama!</p>
+             </div>
+        </div>
+
+        {/* BLOCO DE LÓGICA */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-slate-900 text-white rounded-3xl p-8 text-center mb-12 shadow-2xl relative overflow-hidden"
+          className="bg-slate-900 text-white rounded-3xl p-8 text-center mb-8 shadow-2xl relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-yellow-400 opacity-5 mix-blend-overlay"></div>
           <div className="relative z-10">
@@ -87,6 +124,13 @@ export default function Upsell() {
             <p className="text-2xl md:text-3xl font-black uppercase text-rose-500 tracking-wider text-shadow-sm">Um sem o outro não funciona direito.</p>
           </div>
         </motion.div>
+
+        {/* 8.5 BÔNUS INCLUSOS */}
+        <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-6 text-center mb-10 shadow-sm">
+           <Gift className="w-10 h-10 text-orange-500 mx-auto mb-3" />
+           <h3 className="font-black text-xl text-slate-800 mb-2">🎁 INCLUI 8 SUPER BÔNUS</h3>
+           <p className="text-slate-600 text-sm font-medium">Plano de aula, caderno de cores, números, certificados e muito mais, tudo de graça nesta página.</p>
+        </div>
 
         {/* 9. OFERTA */}
         <div className="bg-white rounded-3xl p-8 mb-8 border-4 border-green-500 shadow-xl text-center relative">
