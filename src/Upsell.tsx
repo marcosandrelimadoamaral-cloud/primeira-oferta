@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, PlayCircle, Star, ShieldCheck } from 'lucide-react';
+import { ArrowRight, PlayCircle, Star, ShieldCheck, Gift } from 'lucide-react';
 
 export default function Upsell() {
   return (
