@@ -82,13 +82,6 @@ export default function Downsell() {
           <p className="text-xs text-slate-500 font-medium">Acesso Imediato + Vitalício</p>
         </div>
 
-        {/* 9. RECUSA FINAL */}
-        <div className="text-center mt-6">
-          <a href="https://educacaokids.com.br" className="text-slate-400 hover:text-slate-500 underline font-medium text-sm transition-colors cursor-pointer">
-            Definitivamente recuso essa oferta e vou seguir sem ensinar meu filho a escrever corretamente.
-          </a>
-        </div>
-
       </div>
     </div>
   );
