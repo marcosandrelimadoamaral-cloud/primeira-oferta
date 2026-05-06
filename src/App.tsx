@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   CheckCircle2, AlertTriangle, MonitorPlay, Check, PlayCircle, BookOpen, 
@@ -696,6 +696,19 @@ const SectionOffer = () => (
 );
 
 const SectionComments = () => {
+  const [userCity, setUserCity] = useState("aqui da região");
+
+  useEffect(() => {
+    fetch('https://get.geojs.io/v1/ip/geo.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.city) {
+          setUserCity(data.city);
+        }
+      })
+      .catch(err => console.error("Error fetching location:", err));
+  }, []);
+
   const comments = [
     {
       name: "André Azevedo",
@@ -712,6 +725,14 @@ const SectionComments = () => {
       text: "Minha filha começou a formar palavras com apenas duas semanas usando o kit. É incrível como ela evoluiu em tão pouco tempo!",
       likes: "3",
       emojis: "👍💖"
+    },
+    {
+      name: "Roberta Nogueira",
+      time: "1 h",
+      img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/m/12.jpg",
+      text: `Sou de ${userCity} e confesso que estava com receio de comprar pela internet. Mas chegou tudo certinho no meu email na mesma hora! Já imprimi a primeira apostila e meu filho amou. Não deixem de comprar.`,
+      likes: "15",
+      emojis: "😍👍"
     },
     {
       name: "Marisa Correia",
