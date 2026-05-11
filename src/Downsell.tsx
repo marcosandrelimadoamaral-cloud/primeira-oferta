@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, ArrowRight, AlertTriangle } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { trackInitiateCheckout } from './lib/fbpixel';
 
 const Highlight = ({ children, className = "" }: any) => (
   <span className={`bg-[#fde047] px-2 py-0.5 rounded-sm font-semibold box-decoration-clone ${className}`}>{children}</span>
@@ -75,6 +76,7 @@ export default function Downsell() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             href="https://lastlink.com/p/C3FEF66B8/checkout-payment" // SUBSTITUA AQUI PELO LINK DE R$ 9,90
+            onClick={() => trackInitiateCheckout(9.90, 'BRL')}
             className="flex flex-col items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white px-4 py-5 rounded-2xl font-black text-xl md:text-xl text-center shadow-[0_6px_0_#166534] active:shadow-[0_0px_0_#166534] active:translate-y-[6px] transition-all uppercase tracking-tight leading-tight mb-2"
           >
             EU QUERO APROVEITAR POR R$ 9,90

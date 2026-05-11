@@ -4,6 +4,7 @@ import {
   CheckCircle2, AlertTriangle, MonitorPlay, Check, PlayCircle, BookOpen, 
   Printer, Smile, ShieldCheck, Mail, Download, ArrowRight, Gift, ChevronDown, ChevronUp, MapPin
 } from 'lucide-react';
+import { trackViewContent, trackInitiateCheckout } from './lib/fbpixel';
 
 const Highlight = ({ children, className = "" }: any) => (
   <span className={`bg-[#fde047] px-1 rounded-sm font-semibold box-decoration-clone ${className}`}>{children}</span>
@@ -67,6 +68,7 @@ const SectionHero = () => (
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
         href="https://lastlink.com/p/C21F5C6B1/checkout-payment" 
+        onClick={() => trackInitiateCheckout(19.90, 'BRL')}
         className="group relative w-full sm:w-[90%] md:w-auto overflow-hidden bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-bold text-lg sm:text-xl md:text-3xl py-5 md:py-6 px-4 sm:px-10 md:px-14 rounded-[2rem] shadow-[0_8px_0_#059669] active:shadow-[0_0px_0_#059669] active:translate-y-[8px] transition-all hover:scale-105"
       >
         <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-500 ease-in-out"></div>
@@ -331,6 +333,7 @@ const SectionGrid = () => (
         viewport={{ once: true }}
         whileHover={{ scale: 1.05 }}
         href="https://lastlink.com/p/C21F5C6B1/checkout-payment" 
+        onClick={() => trackInitiateCheckout(19.90, 'BRL')}
         className="inline-block bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-extrabold text-lg md:text-2xl py-5 px-12 rounded-full shadow-[0_8px_0_#15803d] active:shadow-[0_0px_0_#15803d] active:translate-y-2 transition-all mb-20"
       >
         QUERO MEU FILHO(A) LENDO!
@@ -668,6 +671,7 @@ const SectionOffer = () => (
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href="https://lastlink.com/p/C21F5C6B1/checkout-payment" 
+          onClick={() => trackInitiateCheckout(19.90, 'BRL')}
           className="group relative overflow-hidden inline-block w-full max-w-[600px] mx-auto bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-extrabold py-5 md:py-6 px-4 rounded-[2rem] shadow-[0_8px_0_#15803d] active:shadow-[0_0px_0_#15803d] active:translate-y-[8px] transition-all text-xl sm:text-2xl md:text-3xl mb-8"
         >
           <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-500 ease-in-out"></div>
@@ -875,6 +879,10 @@ const Footer = () => (
 );
 
 export default function App() {
+  useEffect(() => {
+    trackViewContent('Kit Educar', 'kit-01', 19.90, 'BRL');
+  }, []);
+
   return (
     <div className="w-full">
       <SectionHero />
