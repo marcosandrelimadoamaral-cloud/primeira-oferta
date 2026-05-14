@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   CheckCircle2, AlertTriangle, MonitorPlay, Check, PlayCircle, BookOpen, 
-  Printer, Smile, ShieldCheck, Mail, Download, ArrowRight, Gift, ChevronDown, ChevronUp, MapPin
+  Printer, Smile, ShieldCheck, Mail, Download, ArrowRight, Gift, ChevronDown, ChevronUp, MapPin,
+  Pause, Play, Volume2, VolumeX, Maximize
 } from 'lucide-react';
 import { trackViewContent, trackInitiateCheckout } from './lib/fbpixel';
 
@@ -376,50 +377,171 @@ const SectionGrid = () => (
   </section>
 );
 
+const CustomVideoPlayer = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
+  const [volume, setVolume] = React.useState(1);
+  const [isMuted, setIsMuted] = React.useState(false);
+
+  const togglePlay = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const currentProgress = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      setProgress(currentProgress);
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+      setIsMuted(newVolume === 0);
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      const newMuted = !isMuted;
+      setIsMuted(newMuted);
+      videoRef.current.muted = newMuted;
+    }
+  };
+
+  const toggleFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (containerRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        containerRef.current.requestFullscreen();
+      }
+    }
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="relative w-full aspect-[9/16] bg-black cursor-pointer group overflow-hidden"
+      onClick={() => togglePlay()}
+    >
+      <video 
+        ref={videoRef}
+        onTimeUpdate={handleTimeUpdate}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        className="w-full h-full object-cover"
+        playsInline
+      >
+        <source src="/YTDown_Shorts_Kit-de-Grafismo-Fonetico_Media_HWM5_LGZ_yM_001_360p.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay de Play Centralizado (Blue Circle with White Triangle) */}
+      {!isPlaying && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors">
+          <motion.div 
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            whileHover={{ scale: 1.1 }}
+            className="w-24 h-24 md:w-32 md:h-32 bg-[#4c78dd] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(76,120,221,0.4)] border-4 border-white/20"
+          >
+            <Play className="w-12 h-12 md:w-16 md:h-16 text-white fill-white translate-x-1" />
+          </motion.div>
+        </div>
+      )}
+
+      {/* Barra de Controles Inferior */}
+      <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent pt-8 pb-3 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+        {/* Barra de Progresso Customizada */}
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-white/20">
+          <div 
+            className="h-full bg-[#4c78dd] transition-all duration-100 ease-linear"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <div className="flex items-center justify-between mt-2">
+          {/* Botão Play/Pause Pequeno (Esquerda) */}
+          <button 
+            onClick={togglePlay}
+            className="text-white hover:text-[#4c78dd] transition-colors p-1"
+          >
+            {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" />}
+          </button>
+
+          {/* Controle de Volume (Direita) */}
+          <div className="flex items-center gap-2 group/volume">
+            <button onClick={toggleMute} className="text-white hover:text-[#4c78dd] transition-colors">
+              {isMuted || volume === 0 ? <VolumeX size={22} /> : <Volume2 size={22} />}
+            </button>
+            <input 
+              type="range" 
+              min="0" 
+              max="1" 
+              step="0.1" 
+              value={isMuted ? 0 : volume}
+              onChange={handleVolumeChange}
+              onClick={(e) => e.stopPropagation()}
+              className="w-16 md:w-24 h-1 bg-white/30 rounded-lg appearance-none cursor-pointer accent-[#4c78dd]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const SectionVideo = () => (
   <section className="bg-gradient-to-b from-[#fcfaf0] to-white py-20 px-4 text-center">
-    <motion.h2 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-3xl md:text-5xl font-extrabold text-slate-800 mb-6 drop-shadow-sm"
-    >
-      Veja como é fácil <span className="underline decoration-yellow-400 decoration-4">ensinar</span><br/> seu filho(a) a ler com o<br/>Grafismo Fonético...
-    </motion.h2>
-    <motion.p 
-      initial={{ scale: 0.9 }}
-      whileInView={{ scale: 1 }}
-      viewport={{ once: true }}
-      className="font-bold text-xl mb-12 flex items-center justify-center gap-2"
-    >
-      <Highlight className="flex items-center gap-2 py-2 px-6 rounded-full shadow-md text-center mx-auto hover:bg-yellow-300 cursor-default transition-colors">Aperte o play 👇</Highlight>
-    </motion.p>
+    <div className="max-w-4xl mx-auto">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-5xl font-extrabold text-slate-800 mb-6 drop-shadow-sm"
+      >
+        Veja como é fácil <span className="underline decoration-yellow-400 decoration-4">ensinar</span><br/> seu filho(a) a ler com o<br/>Grafismo Fonético...
+      </motion.h2>
+      
+      <motion.p 
+        initial={{ scale: 0.9 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        className="font-bold text-lg md:text-xl mb-12"
+      >
+        <Highlight className="inline-flex items-center gap-2 py-2 px-8 rounded-full shadow-md hover:bg-yellow-300 cursor-default transition-colors">
+          Toque no vídeo para ver a mágica acontecer! ✨
+        </Highlight>
+      </motion.p>
 
-    <motion.div 
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="max-w-[400px] w-full mx-auto bg-[#6b52a1] rounded-3xl overflow-hidden shadow-2xl border-[6px] md:border-[12px] border-[#ede9f6] hover:border-indigo-100 transition-colors"
-    >
-      <div className="relative w-full aspect-[9/16]">
-        {/*
-          IMPORTANTE: Note que o Panda Video exige a URL completa do seu dashboard,
-          que inclui o seu "libID" ou domínio personalizado (ex: player-vz-xxxxx.tv.pandavideo.com.br).
-          Cole o iframe exato fornecido pela PandaVideo abaixo.
-        */}
-        <iframe 
-          id="panda-4ffaf71b-22b3-4df9-bd7a-0bc7a8cdc623" 
-          src="https://player-vz-cab8b543-24c.tv.pandavideo.com.br/embed/?v=4ffaf71b-22b3-4df9-bd7a-0bc7a8cdc623" 
-          style={{ border: 'none', width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }} 
-          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" 
-          allowFullScreen={true}
-        ></iframe>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="max-w-[480px] w-full mx-auto bg-[#6b52a1] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] md:border-[16px] border-white relative z-10"
+      >
+        <CustomVideoPlayer />
+      </motion.div>
+      
+      <div className="mt-16 animate-bounce">
+        <img src="https://educacaokids.com.br/wp-content/uploads/2025/05/SETA-1.png" alt="Seta" className="w-12 h-auto mx-auto drop-shadow-lg" />
       </div>
-    </motion.div>
-    
-    <div className="mt-16 animate-bounce">
-      <img src="https://educacaokids.com.br/wp-content/uploads/2025/05/SETA-1.png" alt="Seta" className="w-12 h-auto mx-auto drop-shadow-lg" />
     </div>
   </section>
 );
