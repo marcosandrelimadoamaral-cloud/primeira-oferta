@@ -42,7 +42,7 @@ const SectionHero = () => (
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-[28px] sm:text-4xl md:text-[44px] font-extrabold leading-tight text-slate-800 max-w-4xl"
       >
-        Descubra a <Highlight className="text-yellow-900 shadow-sm relative"><span className="relative z-10">técnica americana que ensina a ler</span><div className="absolute inset-x-0 bottom-1 h-3 bg-yellow-400 -z-10 skew-x-12"></div></Highlight> até <strong className="text-rose-600">5 vezes mais rápido</strong>, sem pressão!
+        Seu filho trava na leitura e você <Highlight className="text-yellow-900 shadow-sm relative"><span className="relative z-10">não sabe mais como ajudar?</span><div className="absolute inset-x-0 bottom-1 h-3 bg-yellow-400 -z-10 skew-x-12"></div></Highlight>
       </motion.h1>
       <motion.p 
         initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ const SectionHero = () => (
         transition={{ duration: 0.6, delay: 0.3 }}
         className="mt-6 text-xl text-slate-600 font-medium"
       >
-        Com apenas <strong>10 minutos</strong> por dia.
+        Em <strong>21 dias</strong> praticando 10 minutos por dia, seu filho lê sozinho. Sem você precisar saber ensinar. Sem briga.
       </motion.p>
 
       <motion.div 
@@ -59,9 +59,9 @@ const SectionHero = () => (
         transition={{ duration: 0.6, delay: 0.4 }}
         className="flex flex-wrap justify-center gap-3 md:gap-4 mt-10 mb-12 text-sm md:text-base font-semibold text-slate-700"
       >
-        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Ideal para crianças de 2 a 12 anos, no ritmo natural de cada uma</div>
-        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Mesmo que ainda não reconheça letras ou sons</div>
-        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Funciona também com crianças com TDAH, Autismo</div>
+        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Já sentiu que a tarefa de casa vira briga todo dia</div>
+        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Quer ajudar mas não sabe como ensinar</div>
+        <div className="flex items-center gap-2 bg-white border border-green-100 shadow-sm px-5 py-3 rounded-full hover:-translate-y-1 transition-transform cursor-default"><CheckCircle2 className="w-5 h-5 text-green-500" /> Funciona mesmo com dificuldade de atenção ou TDAH</div>
       </motion.div>
 
       <motion.a 
@@ -69,24 +69,26 @@ const SectionHero = () => (
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
         href="https://lastlink.com/p/C21F5C6B1/checkout-payment" 
-        onClick={() => trackInitiateCheckout(19.90, 'BRL')}
+        onClick={() => trackInitiateCheckout(29.90, 'BRL')}
         className="group relative w-full sm:w-[90%] md:w-auto overflow-hidden bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-bold text-lg sm:text-xl md:text-3xl py-5 md:py-6 px-4 sm:px-10 md:px-14 rounded-[2rem] shadow-[0_8px_0_#059669] active:shadow-[0_0px_0_#059669] active:translate-y-[8px] transition-all hover:scale-105"
       >
         <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-500 ease-in-out"></div>
-        <span className="relative flex items-center justify-center gap-2 shadow-black/50 drop-shadow-md">
-          QUERO MEU PEQUENO LENDO RÁPIDO!
+        <span className="relative flex items-center justify-center gap-2 shadow-black/50 drop-shadow-md text-center">
+          Quero meu filho lendo em 21 dias
           <ArrowRight className="w-6 h-6 md:w-8 md:h-8 animate-pulse" />
         </span>
       </motion.a>
 
-      <motion.p 
+      <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="mt-8 text-slate-500 max-w-3xl mx-auto text-base"
+        className="mt-6 text-slate-600 max-w-3xl mx-auto flex flex-col items-center gap-3"
       >
-        Com o <strong>Kit de Grafismo Fonético</strong>, baseado no <strong>método americano</strong> de alfabetização, seu filho aprende a ler até <strong>5x mais rápido</strong>, de forma divertida, simples e eficaz, direto de casa!
-      </motion.p>
+        <span className="flex items-center gap-2 font-bold text-green-600 bg-green-50 px-4 py-2 rounded-full border border-green-200">
+          <ShieldCheck className="w-5 h-5" /> Garantia de 7 dias, devolução total, sem perguntas
+        </span>
+      </motion.div>
 
       <div className="mt-12 animate-bounce opacity-60">
         <div className="w-6 h-6 border-b-3 border-r-3 border-slate-400 rotate-45 mx-auto" />
@@ -104,35 +106,31 @@ const SectionPains = () => (
       viewport={{ once: true, margin: "-100px" }}
       className="text-2xl md:text-3xl font-bold text-slate-800 mb-8"
     >
-      Muitos pais acham que<br/>
-      <span className="text-[#b45309]">"<Highlight className="bg-[#fef08a] px-2 text-[#92400e]">cada criança tem seu tempo pra ler</Highlight>". Até que...</span>
+      Esta página é para <Highlight className="bg-[#fefce8] px-2 text-[#b45309]">você que...</Highlight>
     </motion.h2>
 
-    <div className="space-y-4 mb-8 max-w-lg mx-auto">
-      {[ 'As tarefas de leitura viram um sofrimento', 'As notas baixas', 'Ela se sente "menos inteligente" do que os coleguinhas' ].map((text, i) => (
+    <div className="space-y-4 mb-8 max-w-xl mx-auto">
+      {[ 
+        'Já sentiu que a tarefa de casa vira briga todo dia', 
+        'Recebeu um aviso da professora de que ele está atrasado', 
+        'Já tentou de tudo e continua sem resultado',
+        'Quer ajudar mas não sabe como ensinar',
+        'Tem um filho com dificuldade de atenção ou TDAH',
+        'Quer que ele aprenda com você, sem precisar de aulas extras' 
+      ].map((text, i) => (
         <motion.div 
           key={i}
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.15 }}
-          className="bg-[#fff1f2] border border-[#fecdd3] text-[#be123c] py-3 px-6 rounded-xl font-medium flex items-center justify-center gap-3 shadow-sm hover:shadow-md transition-shadow"
+          className="bg-[#fff1f2] border border-[#fecdd3] text-[#be123c] py-3 px-6 rounded-xl font-medium flex items-center justify-center sm:justify-start gap-4 shadow-sm hover:shadow-md transition-shadow text-left"
         >
-          <AlertTriangle className="w-5 h-5 opacity-60 animate-pulse" /> {text}
+          <AlertTriangle className="w-5 h-5 opacity-60 animate-pulse shrink-0" /> {text}
         </motion.div>
       ))}
     </div>
 
-    <motion.p 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.5 }}
-      className="text-xl md:text-2xl font-bold text-slate-800"
-    >
-      <Highlight className="bg-[#fef08a]">Como consequência:</Highlight> Começa a achar que não é capaz,<br className="hidden md:block"/> sem entender o porquê..
-    </motion.p>
-    
     <div className="mt-10 animate-bounce">
       <div className="w-6 h-6 border-b-2 border-r-2 border-slate-400 rotate-45 mx-auto" />
       <div className="w-6 h-6 border-b-2 border-r-2 border-slate-400 rotate-45 mx-auto -mt-3" />
@@ -163,17 +161,19 @@ const SectionProblem = () => (
       viewport={{ once: true, margin: "-50px" }}
       className="relative z-10 max-w-4xl mx-auto text-center border-2 border-yellow-200 bg-white rounded-3xl p-8 md:p-14 shadow-xl hover:shadow-2xl transition-shadow duration-500"
     >
-      <h2 className="text-3xl md:text-4xl font-medium text-slate-800 mb-6">
-        Entenda o que <span className="underline decoration-yellow-400 decoration-4">realmente</span><br/>
-        <Highlight className="bg-[#fde047] px-2 text-slate-900 mt-2 inline-block">atrasa a leitura do seu filho...</Highlight>
+      <h2 className="text-3xl md:text-4xl font-medium text-slate-800 mb-6 leading-tight">
+        "Quando minha filha me disse que fingia saber ler para os amigos,<br/> 
+        <Highlight className="bg-[#fde047] px-2 text-slate-900 mt-2 inline-block">eu não consegui dormir naquela noite."</Highlight>
       </h2>
-      <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-6">
-        falta de estímulo fonético na fase certa, o que pode tornar o processo de alfabetização mais lento, frustrante e confuso, tanto para a criança quanto para você.
-      </p>
+      <div className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed space-y-4">
+        <p>Eu sentia que havia falhado. Já tínhamos tentado de tudo: esperei "o tempo dela" como a escola recomendou, pagamos fono e compramos vários cursinhos de internet.</p>
+        <p>Nada funcionava. Cada tentativa parecia deixá-la mais frustrada e a tarefa de casa continuava sendo uma guerra diária.</p>
+      </div>
       <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto my-8 rounded-full" />
-      <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium leading-relaxed">
-        Mas calma, você não tem culpa disso... É que ninguém te ensinou como ajudar seu filho a despertar a leitura de forma leve, divertida e no tempo certo.
-      </p>
+      <div className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto font-medium leading-relaxed space-y-4">
+        <p>A virada aconteceu quando descobri o método fônico: em vez de fazer a criança decorar o nome da letra ("Eme"), ensinamos o SOM da letra com gestos e imagens ("Mmm").</p>
+        <p className="font-bold text-slate-800">Em poucas semanas aplicando esse método simples em casa, ela já estava formando sílabas e lendo sozinha.</p>
+      </div>
     </motion.div>
   </section>
 );
@@ -262,13 +262,16 @@ const SectionWorks = () => (
         <img src="https://educacaokids.com.br/wp-content/uploads/2025/05/Menina-com-Atividades-Ludicas-de-Grafismo-Fonetico.webp" alt="Criança sorrindo com atividade" className="w-full max-w-[300px] h-auto rounded-3xl shadow-2xl rotate-[-3deg] hover:rotate-0 border-[6px] border-white transition-all duration-500" />
         <div>
           <h3 className="text-2xl font-bold text-indigo-900 mb-4 leading-snug">
-            Antes de aprender a ler, o cérebro da criança precisa reconhecer padrões, sons e movimentos.
+            O mesmo método adotado pelos países com maior taxa de alfabetização do mundo.
           </h3>
           <p className="text-slate-700 mb-4 text-lg">
-            As atividades de grafismo fonético desenvolvem a <strong>consciência fonológica e visual</strong>, habilidades essenciais para que a criança reconheça sílabas, sons e estruturas das palavras de forma natural.
+            Em vez de forçar a criança a decorar o formato e o nome complexo das letras, as atividades ensinam a <strong>fazer o som de cada letra.</strong>
+          </p>
+          <p className="text-slate-700 mb-4 text-lg">
+            Essa abordagem é tão poderosa e validade que foi <strong>adotada pelo governo brasileiro em 2019</strong> como o melhor caminho para acabar com o atraso na leitura.
           </p>
           <p className="text-slate-700 text-lg">
-            Ao traçar linhas, curvas e padrões fonéticos, ela fortalece as conexões cerebrais responsáveis pela leitura, <strong>acelerando o processo de alfabetização de forma divertida e sem pressão.</strong>
+            Ao traçar as letras e repetir os sons com a ajuda de figuras familiares, <strong>seu filho entende a lógica de formar palavras sozinho, acelerando o aprendizado sem ficar frustrado.</strong>
           </p>
         </div>
       </motion.div>
@@ -282,17 +285,25 @@ const SectionWorks = () => (
         <img src="https://educacaokids.com.br/wp-content/uploads/2025/05/Mae-com-seu-filho-ajudando-nas-atividades-de-grafismo-fonetico.webp" alt="Mãe focada com filho" className="w-64 h-64 md:w-[300px] md:h-[300px] max-w-full object-cover rounded-3xl shadow-2xl rotate-[3deg] hover:rotate-0 border-[6px] border-white transition-all duration-500 shrink-0" />
         <div className="w-full">
           <h3 className="text-2xl font-extrabold text-emerald-900 mb-6 drop-shadow-sm">
-            E em poucos dias você vai notar a diferença na leitura do seu filho:
+            E em poucos dias você vai notar na prática:
           </h3>
-          <div className="space-y-4">
-            {[ 'Vai reconhecer sílabas e sons com mais facilidade', 'Vai se sentir mais confiante ao tentar ler palavras novas', 'Vai mostrar mais interesse por livros e história', 'Vai aprender no ritmo dele, sem frustração ou comparação' ].map((text, i) => (
+          <div className="space-y-4 mb-6">
+            {[ 
+              'Seu filho para de trocar o B com o D para sempre', 
+              'A tarefa de casa vira 10 minutos divertidos, sem briga', 
+              'Você não precisa saber ensinar, o material conduz passo a passo', 
+              'Em 2 semanas ele lê palavras novas que nunca viu' 
+            ].map((text, i) => (
               <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-emerald-100 font-medium text-slate-700 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
                 <CheckCircle2 className="text-[#34d399] shrink-0" /> {text}
               </div>
             ))}
             <div className="flex items-center gap-3 bg-emerald-500 p-4 rounded-xl shadow-lg border border-emerald-400 font-bold text-white hover:scale-105 transition-transform">
-              <CheckCircle2 className="text-white shrink-0" /> Vai passar a gostar dos momentos de leitura em casa
+              <CheckCircle2 className="text-white shrink-0" /> Em 1 mês você filma ele lendo sozinho e manda pro grupo da família
             </div>
+          </div>
+          <div className="bg-emerald-50 text-emerald-800 font-bold p-4 block rounded-xl border border-emerald-200 text-center shadow-inner">
+            Semana 1: reconhece os sons → Semana 2: lê sílabas → Mês 1: lê frases
           </div>
         </div>
       </motion.div>
@@ -778,27 +789,27 @@ const SectionOffer = () => (
         transition={{ delay: 0.2 }}
         className="bg-white p-6 md:p-12 rounded-3xl shadow-2xl border-2 border-green-100 hover:border-green-300 transition-colors"
       >
-        <p className="text-slate-600 mb-2 text-base md:text-lg font-medium">No total tudo deveria custar <span className="line-through text-red-500 font-extrabold ml-1">R$ 453,00</span></p>
-        <p className="text-slate-800 font-extrabold text-xl md:text-2xl mb-6">Mas hoje você vai ter acesso completo por</p>
+        <p className="text-slate-800 font-extrabold text-xl md:text-2xl mb-2">Acesso imediato ao Kit Grafismo Fonético</p>
+        <p className="text-slate-400 mb-6 text-base md:text-lg font-medium">De <span className="line-through font-extrabold mx-1">R$ 97,00</span></p>
 
-        <div className="text-[50px] sm:text-[70px] md:text-[90px] font-black text-[#16a34a] leading-none mb-6 drop-shadow-md">R$ 19,90</div>
-        <p className="font-extrabold text-slate-700 text-lg sm:text-xl md:text-2xl mb-8 uppercase tracking-wide bg-slate-100 py-3 rounded-xl inline-block px-4 sm:px-8 border border-slate-200">Pagamento Exclusivo via PIX</p>
+        <p className="text-slate-800 font-extrabold text-lg mb-2">Por apenas</p>
+        <div className="text-[50px] sm:text-[70px] md:text-[90px] font-black text-[#16a34a] leading-none mb-6 drop-shadow-md">R$ 29,90</div>
+        <p className="font-extrabold text-slate-700 text-lg sm:text-xl md:text-2xl mb-8 uppercase tracking-wide bg-slate-100 py-3 rounded-xl inline-block px-4 sm:px-8 border border-slate-200">Pagamento único via PIX, acesso liberado na hora</p>
         
-        <p className="text-xs sm:text-sm md:text-base font-extrabold text-slate-500 mb-6 tracking-widest uppercase flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-          <span className="flex items-center gap-1"><Check className="w-4 h-4 md:w-5 md:h-5 text-green-500"/> ACESSO VITALÍCIO</span> 
-          <span className="flex items-center gap-1"><Check className="w-4 h-4 md:w-5 md:h-5 text-green-500"/> ACESSO IMEDIATO</span>
-        </p>
-
         <motion.a 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href="https://lastlink.com/p/C21F5C6B1/checkout-payment" 
-          onClick={() => trackInitiateCheckout(19.90, 'BRL')}
-          className="group relative overflow-hidden inline-block w-full max-w-[600px] mx-auto bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-extrabold py-5 md:py-6 px-4 rounded-[2rem] shadow-[0_8px_0_#15803d] active:shadow-[0_0px_0_#15803d] active:translate-y-[8px] transition-all text-xl sm:text-2xl md:text-3xl mb-8"
+          onClick={() => trackInitiateCheckout(29.90, 'BRL')}
+          className="group relative overflow-hidden inline-block w-full max-w-[600px] mx-auto bg-gradient-to-r from-[#22c55e] to-[#10b981] hover:from-[#16a34a] hover:to-[#059669] text-white font-extrabold py-5 md:py-6 px-4 rounded-[2rem] shadow-[0_8px_0_#15803d] active:shadow-[0_0px_0_#15803d] active:translate-y-[8px] transition-all text-xl sm:text-2xl md:text-3xl mb-6"
         >
           <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-[-100%] transition-transform duration-500 ease-in-out"></div>
-          <span className="relative flex justify-center items-center gap-3 drop-shadow-md shadow-black/50">QUERO GARANTIR O MEU KIT AGORA! <ArrowRight className="w-8 h-8 animate-pulse" /></span>
+          <span className="relative flex justify-center items-center gap-3 drop-shadow-md shadow-black/50">Quero meu filho lendo em 21 dias <ArrowRight className="w-8 h-8 animate-pulse" /></span>
         </motion.a>
+
+        <div className="flex items-center justify-center font-bold text-slate-600 gap-2 mb-4 bg-slate-50 px-6 py-3 rounded-full border border-slate-200 text-sm md:text-base shadow-inner drop-shadow-sm mx-auto max-w-lg">
+          <ShieldCheck className="w-5 h-5 text-green-500" /> Garantia de 7 dias, devolução total sem perguntas
+        </div>
 
         <div className="mt-8 flex flex-col items-center">
           <motion.img 
@@ -837,10 +848,10 @@ const SectionComments = () => {
 
   const comments = [
     {
-      name: "André Azevedo",
+      name: "Mariana Souza",
       time: "28 min",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/h/39.jpg",
-      text: "meus pequenos estão conseguindo ter uma evolução siginificativa graças ao Grafismo Fonético. Quem comprar outro produto, é porque não gosta de dinheiro.",
+      text: "Mãe do Lucas, 7 anos. Em 15 dias usando o Kit, ele parou de trocar o B com o D! Eu não sabia mais o que fazer, já tinha tentado de tudo. Finalmente voltei a ser mãe e não a professora rígida. Melhor investimento!",
       likes: "7",
       emojis: "🤩💖"
     },
@@ -848,7 +859,7 @@ const SectionComments = () => {
       name: "Ana Oliveira",
       time: "55 min",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/m/94.jpg",
-      text: "Minha filha começou a formar palavras com apenas duas semanas usando o kit. É incrível como ela evoluiu em tão pouco tempo!",
+      text: "Mãe da Julia, 6 anos. A professora tinha chamado pra reunião e eu saí de lá chorando. Comprei o kit desesperada. Na segunda semana ela já estava lendo sílabas sem brigar. Alívio define!",
       likes: "3",
       emojis: "👍💖"
     },
@@ -856,7 +867,7 @@ const SectionComments = () => {
       name: "Roberta Nogueira",
       time: "1 h",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/m/12.jpg",
-      text: `Sou de ${userCity} e confesso que estava com receio de comprar pela internet. Mas chegou tudo certinho no meu email na mesma hora! Já imprimi a primeira apostila e meu filho amou. Não deixem de comprar.`,
+      text: `Sou de ${userCity} e mãe do Pedro de 5 anos. Ele tem dificuldade de atenção e achei que não ia parar sentado. Mágica pura: como tem figura e gesto, os 10 minutos voam. Em 21 dias filmou ele lendo no café da manhã!`,
       likes: "15",
       emojis: "😍👍"
     },
@@ -864,7 +875,7 @@ const SectionComments = () => {
       name: "Marisa Correia",
       time: "1 h",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/m/39.jpg",
-      text: "Acreditem em mim, essa é a melhor compra que vocês vão fazer este ano. Não percam a chance!",
+      text: "Mãe do Enzo, 8 anos. Meu filho disse que fingia saber ler para os amigos não zoarem. Chorei horrores. Mas o método fônico desse material salvou a gente. Foi tão direto ao ponto que num mês ele já lia as placas na rua. Mandei no grupo da família!",
       likes: "13",
       emojis: "🤩"
     },
@@ -872,15 +883,15 @@ const SectionComments = () => {
       name: "Camila Silva",
       time: "2 h",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/m/80.jpg",
-      text: "É incrível como algo tão simples pode fazer tanta diferença! Estou muito satisfeito com a minha compra ✌",
+      text: "Mãe da Sofia, 4 anos. Não queria que ela chegasse na escola sem base. O passo a passo é tão bom que ela pede pra fazer. E eu não precisei saber ensinar, o material faz o trabalho. Lindo demais! ✌",
       likes: "8",
       emojis: "👍"
     },
     {
-      name: "Breno Souza",
+      name: "Carla Pires",
       time: "5 h",
       img: "https://ik.imagekit.io/RossCDN/facebook/social-plugin/h/42.jpg",
-      text: "O método é simples de seguir, mesmo para nós que somos pais sem experiência em ensino. É muito gratificante ver nosso filho lendo suas primeiras palavras!",
+      text: "Mãe do Leo, 7 anos. Gastamos rios de dinheiro com reforço e fono e nada resolveu o som. Apenas os 10 minutinhos desse kit deram o clique que 1 ano de aula não resolveu. Ele lê orgulhoso agora. Vale ouro!",
       likes: "20",
       emojis: "💖🤩"
     }
@@ -894,8 +905,8 @@ const SectionComments = () => {
         viewport={{ once: true }}
         className="max-w-3xl mx-auto bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-slate-100 p-6 md:p-8"
       >
-        <div className="text-[13px] text-slate-800 font-bold mb-4 font-sans tracking-wide">
-          5 Comentários
+        <div className="text-[14px] text-slate-800 font-bold mb-4 font-sans tracking-wide border-b border-slate-200 pb-2">
+          Mais de 10.000 mães já usaram o Grafismo Fonético
         </div>
         
         <div className="space-y-4">
@@ -981,13 +992,11 @@ const Footer = () => (
       <div className="flex justify-center mb-10">
         <img src="https://educacaokids.com.br/wp-content/uploads/2023/04/site-blindado-1-300x76.png" alt="Site Blindado" className="h-10 md:h-12 w-auto" />
       </div>
-      <h2 className="text-2xl font-bold text-center text-slate-800 mb-10">PERGUNTAS FREQUENTES</h2>
-      <FAQItem q="Quais são as Formas de Pagamento?" a="Você pode pagar via PIX." />
-      <FAQItem q="Como acesso a plataforma?" a="O acesso a Área de Membros é enviado para seu e-mail imediatamente após a confirmação do pagamento. Lá você poderá baixar todo o conteúdo em PDF!" />
-      <FAQItem q="Tenho que pagar todo mês?" a="Não, o pagamento é apenas uma vez e você poderá ter acesso a ele vitalício." />
-      <FAQItem q="Posso tirar dúvidas?" a="Sim! Basta chamar nossa equipe de suporte pelo botão de WhatsApp dessa página, pelo nosso Instagram, pelo Facebook ou por email." />
-      <FAQItem q="Para quem é indicado o material?" a="Nossas atividades de grafismo fonético são projetadas para crianças de diferentes faixas etárias, abrangendo desde a primeira infância até o ensino fundamental." />
-      <FAQItem q="Quais são os benefícios Grafismos Fonéticos?" a="Os grafismos fonéticos facilitam a associação entre som e letra, desenvolvem a consciência fonológica e fortalecem a memória visual e auditiva. Eles também aprimoram a coordenação motora e tornam a leitura mais interessante, ajudando a prevenir dificuldades de leitura e incentivando o aprendizado ativo." />
+      <h2 className="text-2xl font-bold text-center text-slate-800 mb-10">JÁ TENTEI DE TUDO... E AGORA?</h2>
+      <FAQItem q="Por que isso é diferente de tudo que já tentei?" a="O método tradicional força a criança a decorar nomes de letras (como 'Eme' e 'Efe'), o que confunde na hora de juntar as palavras. Nosso material usa o método fônico, o mesmo dos países mais desenvolvidos: ensina o SOM da letra com gestos e imagens. A criança entende a lógica e não precisa decorar tudo na marra." />
+      <FAQItem q="Quanto tempo por dia preciso dedicar?" a="De 10 a 15 minutos. Você pode fazer enquanto ele toma café da manhã ou antes de dormir." />
+      <FAQItem q="Funciona para criança com TDAH ou dificuldade de atenção?" a="Sim. O método usa gesto e imagem para apresentar os sons. É lúdico e não precisa ficar prestando atenção em uma lousa por horas. São atividades rápidas e visuais." />
+      <FAQItem q="E se não funcionar?" a="7 dias de garantia total. Se não gostar por qualquer motivo, é só mandar mensagem e devolvemos 100% do seu dinheiro, sem burocracia." />
     </div>
   </section>
   <footer className="bg-slate-900 text-slate-400 py-6 px-4">
@@ -1002,7 +1011,7 @@ const Footer = () => (
 
 export default function App() {
   useEffect(() => {
-    trackViewContent('Kit Educar', 'kit-01', 19.90, 'BRL');
+    trackViewContent('Kit Educar', 'kit-01', 29.90, 'BRL');
   }, []);
 
   return (

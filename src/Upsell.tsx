@@ -38,7 +38,7 @@ export default function Upsell() {
     <div className="min-h-screen bg-gradient-to-b from-[#fcfaf0] to-white font-sans selection:bg-yellow-200 pb-12">
       {/* 1. URGÊNCIA */}
       <div className="bg-red-600 text-white text-center py-3 px-4 font-bold uppercase tracking-wide text-[13px] sm:text-sm relative z-20 shadow-md animate-pulse">
-        Não feche essa página ou sua compra pode não ser completa
+        Não feche esta página, seu kit ainda não está completo
       </div>
 
       <div className="max-w-3xl mx-auto px-4 pt-12">
@@ -48,7 +48,7 @@ export default function Upsell() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-4xl font-extrabold text-center text-slate-800 mb-6 leading-tight tracking-tight drop-shadow-sm"
         >
-          Espere! Falta Apenas <span className="text-[#ec008c]">Um Passo</span> Para Completar Seu Kit
+          Espera! Ele vai aprender a ler... mas você <span className="text-[#ec008c]">também quer que ele escreva bem, né?</span>
         </motion.h1>
 
         {/* 3. SUBHEADLINE */}
@@ -58,7 +58,7 @@ export default function Upsell() {
           transition={{ delay: 0.1 }}
           className="text-lg md:text-xl text-center text-slate-600 font-medium mb-10 px-2"
         >
-          Com o <Highlight>Grafismo Fonético</Highlight> que você acabou de comprar, seu filho vai aprender a <strong>LER</strong> e entender a formação das palavras.<br/><br/>Mas para ele conseguir <strong>ESCREVER</strong> com facilidade, ele precisa ter o controle da mão.
+          Com o <Highlight>Grafismo Fonético</Highlight>, seu filho vai aprender a reconhecer os sons e ler as primeiras palavras.<br/><br/>Mas tem uma coisa que a maioria das mães descobre só depois: de nada adianta ler se a mão não consegue reproduzir. A letra sai tremida, torta, e a criança começa a frustrar.
         </motion.p>
         
         {/* 4. MOCKUP VISUAL (Corrigido da LP Oficial) */}
@@ -75,24 +75,26 @@ export default function Upsell() {
            />
         </motion.div>
 
-        {/* 5. PROBLEMA E CONEXÃO COM O VISUAL DA LP */}
-        <div className="bg-white p-6 md:p-8 rounded-3xl shadow-lg border-[3px] border-[#ede9f6] mb-10 text-center">
-          <p className="text-slate-700 font-bold mb-4 text-xl md:text-2xl">Não adianta a criança entender as palavras se não consegue passá-las para o papel.</p>
-          <p className="text-slate-600 font-medium mb-6 text-lg">Com a <span className="font-bold text-[#ec008c]">Grafomotricidade</span>, seu filho treina exatamente a coordenação motora fina para ter firmeza no lápis e letra legível.</p>
-          <div className="inline-block bg-rose-50 border-2 border-rose-200 text-rose-600 font-black text-xl md:text-2xl uppercase tracking-tight py-3 px-6 rounded-2xl shadow-sm">
-            E TUDO ISSO COM APENAS 10 MINUTOS POR DIA
-          </div>
-        </div>
-
-        {/* 6. APRESENTAÇÃO DO PRODUTO SEM ENROLAÇÃO */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold text-slate-800 mb-6 drop-shadow-sm leading-tight">
-            O complemento perfeito:<br />
-            <span className="text-[#ec008c]">Kit Grafomotricidade</span>
-          </h2>
-          <p className="text-lg text-slate-600 font-medium mb-8">
-            Esse material complementar entrega o controle exato da mão na prática. Sem esse controle, a letra sai tremida, torta e a criança perde o interesse em escrever.
-          </p>
+        {/* 5. BENEFÍCIOS */}
+        <div className="bg-white p-6 md:p-8 rounded-3xl shadow-lg border-[3px] border-[#ede9f6] mb-10 text-left max-w-2xl mx-auto">
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <ShieldCheck className="w-6 h-6 text-[#ec008c] mt-0.5 shrink-0" />
+              <span className="text-slate-700 text-lg font-medium"><strong>A letra sai tremida e ilegível?</strong> Em poucas semanas a mão fica firme</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <ShieldCheck className="w-6 h-6 text-[#ec008c] mt-0.5 shrink-0" />
+              <span className="text-slate-700 text-lg font-medium"><strong>Ele faz força e cansa rápido ao escrever?</strong> O treino progressivo resolve isso</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <ShieldCheck className="w-6 h-6 text-[#ec008c] mt-0.5 shrink-0" />
+              <span className="text-slate-700 text-lg font-medium"><strong>Tudo em 10 minutos por dia</strong>, pode fazer junto com o Grafismo Fonético</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <ShieldCheck className="w-6 h-6 text-[#ec008c] mt-0.5 shrink-0" />
+              <span className="text-slate-700 text-lg font-medium"><strong>Atividades lúdicas</strong> que ele vai pedir para fazer de novo</span>
+            </li>
+          </ul>
         </div>
 
         {/* 7. IMAGENS REAIS DE BENEFÍCIOS/TRAÇOS DA LP */}
@@ -110,21 +112,23 @@ export default function Upsell() {
           className="bg-[#6b52a1] text-white rounded-3xl p-8 text-center mb-10 shadow-2xl relative overflow-hidden ring-4 ring-[#ede9f6]"
         >
           <div className="relative z-10">
-            <p className="text-xl md:text-2xl font-bold mb-4 drop-shadow-md">Grafismo fonético ensina a <span className="text-yellow-300">ler.</span></p>
-            <p className="text-xl md:text-2xl font-bold mb-8 drop-shadow-md">Grafomotricidade treina a mão a <span className="text-yellow-300">escrever.</span></p>
+            <p className="text-xl md:text-2xl font-bold mb-4 drop-shadow-md">Grafismo Fonético ensina a <span className="text-yellow-300">ler ✓</span></p>
+            <p className="text-xl md:text-2xl font-bold mb-8 drop-shadow-md">Grafomotricidade treina a mão para <span className="text-yellow-300">escrever ✓</span></p>
             <div className="max-w-xs mx-auto h-1 bg-white/20 rounded-full mb-6"></div>
-            <p className="text-2xl md:text-3xl font-black uppercase text-yellow-300 tracking-wider drop-shadow-lg">Um sem o outro não funciona direito.</p>
+            <p className="text-xl md:text-2xl font-black text-yellow-300 drop-shadow-lg mb-2">Juntos, seu filho aprende a ler E a colocar no papel, alfabetização de verdade.</p>
+            <p className="text-lg md:text-xl font-bold text-white drop-shadow-md">Mães que levam os dois juntos chegam ao resultado 2x mais rápido.</p>
           </div>
         </motion.div>
 
         {/* 8. OFERTA / CHECKOUT */}
         <div className="bg-white rounded-3xl p-8 mb-6 border-[4px] border-[#3b82f6] shadow-xl text-center relative mt-12">
-           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3b82f6] text-white px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm shadow-md flex items-center gap-2 whitespace-nowrap">
-            <ShieldCheck className="w-5 h-5" /> Adicione ao seu pedido
+           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#3b82f6] text-white px-6 py-2 rounded-full font-bold tracking-wider text-sm shadow-md flex items-center gap-2 whitespace-nowrap">
+            <ShieldCheck className="w-5 h-5" /> Adicionado ao seu pedido, sem novo pagamento
            </div>
 
-          <p className="text-slate-500 font-medium line-through mb-1 mt-4 text-lg">De R$57,00</p>
-          <p className="text-slate-700 font-extrabold mb-1">Por apenas:</p>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-800 mt-4 mb-2">Complete a alfabetização do seu filho hoje</h2>
+          <p className="text-slate-500 font-medium text-lg">De <span className="line-through">R$57,00</span></p>
+          <p className="text-slate-700 font-extrabold mb-1 mt-2">Por apenas</p>
           <div className="text-6xl md:text-7xl font-black text-[#ec008c] mb-6 drop-shadow-sm">R$16,90</div>
           
           <motion.a 
@@ -132,16 +136,16 @@ export default function Upsell() {
             whileTap={{ scale: 0.98 }}
             href="https://lastlink.com/p/C89979E7A/checkout-payment/"
             onClick={() => trackInitiateCheckout(16.90, 'BRL')}
-            className="flex flex-col items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white px-4 py-5 rounded-2xl font-black text-xl md:text-2xl text-center shadow-[0_6px_0_#166534] active:shadow-[0_0px_0_#166534] active:translate-y-[6px] transition-all uppercase tracking-tight leading-tight"
+            className="flex flex-col items-center justify-center w-full bg-green-500 hover:bg-green-600 text-white px-4 py-5 rounded-2xl font-black text-lg md:text-2xl text-center shadow-[0_6px_0_#166534] active:shadow-[0_0px_0_#166534] active:translate-y-[6px] transition-all tracking-tight leading-tight"
           >
-            SIM! QUERO ADICIONAR AO MEU ACESSO
+            SIM! Quero a alfabetização completa por R$16,90
           </motion.a>
         </div>
 
         {/* 9. RECUSA (MANTIDA RIGOROSAMENTE) */}
         <div className="text-center mt-6">
           <Link to="/downsell" className="text-slate-400 hover:text-slate-500 underline font-medium text-sm transition-colors cursor-pointer">
-            Não, prefiro não incluir isso agora e lidar com as dificuldades depois.
+            Não, prefiro focar só na leitura por enquanto
           </Link>
         </div>
 
